@@ -4,50 +4,138 @@
 #include <iostream>
 #include <time.h>
 using namespace std;
-float pole(float r);
-float pole(float a, float b);
-float poletrojkata(float a, float b);
-void szescian(float a);
-void walec(float, float);
+void bin (int);
 
-int main()
+intmain ()
 {
-    float r, a, b, h;
-    cout << "podaj a =", cin >> a;
-    cout << "podaj b =", cin >> b;
-    cout << "podaj h =", cin >> h;
-    cout << "podaj r =", cin >> r;
-       
-    if (a > 0 && b > 0 && h > 0 && r > 0) {
-        cout << "Pole kola: "<< pole(r) << endl;
-        cout << "Pole prostokata: " << pole(a,b) << endl;
-        cout << "Pole trojkata: " << pole(a,h) << endl;
-        cout <<""<<endl;
-        cout << "Szescian: \n" << endl;
-        szescian(a);
-        cout << "Walec: \n" << endl;
-        walec(r, h), cout << endl;
-    }
-    else cout << "Podane nieprawidlowe dane!";
+  cout << "Podaj liczbe dziesietnie: ";
+  int wartosc;
+  cin >> wartosc;
+  cout << "Liczba binarnie: ";
+  bin (wartosc);
+  cout << endl;
+  return 0;
+}
+
+void bin (int liczba)
+{
+  if (liczba >= 2)
+    bin (liczba / 2);
+  cout << liczba % 2;
+}
+*/
+
+
+/*
+//Zadanie 2
+
+#include <iostream>
+#include <time.h>
+using namespace std;
+
+int NWD (int a, int b)
+{
+  if (b != 0)
+    return NWD (b, a % b);
+  return a;
 
 }
 
-    float pole(float r) {
-        return 3.14 * r * r;
+int
+main ()
+{
+  cout << NWD (33, 54);
+  cout << endl << NWD (27, 16);
+  cout << endl << NWD (275, 121);
+
+}
+*/
+
+
+/*
+//Zadanie 3
+
+#include <iostream>
+#include <time.h>
+using namespace std;
+
+
+int ciag (int n)
+{
+  if (n == 0)
+    return 0;
+  if (n < 3)
+    return 1;
+  return ciag (n - 2) + ciag (n - 1);
+}
+
+int main ()
+{
+  int n;
+  cout << "Ciag Fibanaccego odpowiednio dla wartosci:  " << endl;
+  for (int i = 0; i < 10; i++)
+    {
+      cout << i << " ma wartosc: " << ciag (i) << endl;
     }
-    float pole(float a, float b) {
-        return a*b;
+  return 0;
+}
+*/
+
+
+/*
+//Zadanie 4
+
+#include <iostream>
+#include <time.h>
+using namespace std;
+
+int silnia (int liczba)
+{
+  if (liczba < 2)
+    {
+      return liczba;
     }
-    float poletrojkata(float a, float h) {
-        return (a*h)/2;
-    }
-    void szescian(float a) {
-        cout << "Pole = " << 6 * a * a;
-        cout << "\nObjetosc = " << a * a * a<< endl;
-        cout <<""<<endl;
-    }
-    void walec(float r, float h) {
-        cout << "Pole = " << 2*3.14*r*(r+h);
-        cout << "\nObjetosc = " << 3.14 *r *h;
-    }
+  return liczba * silnia (liczba - 1);
+}
+
+int main ()
+{
+  int liczba;
+  cout << "podaj liczbe" << endl;
+  cin >> liczba;
+
+  cout << silnia (liczba) << endl;
+  return (0);
+
+}
+*/
+
+
+/*
+//Zadanie 5
+
+#include <iostream>
+#include <time.h>
+using namespace std;
+
+float
+ciag (int n)
+{
+  if (n == 1)
+    return 0;
+  else if (n == 2)
+    return 0.5;
+  else if (n > 2)
+
+    return !(ciag (n - 1)) * ciag (n - 2);
+  else
+    return 0;
+}
+
+int main ()
+{
+  int n;
+  cin >> n;
+  cout << ciag (n);
+}
 */
